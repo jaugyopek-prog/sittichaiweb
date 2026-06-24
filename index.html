@@ -2,223 +2,71 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แนะนำตัวเอง - สิทธิชัย หวังมีสุข</title>
-    <style>
-        /* รีเซ็ตค่าพื้นฐาน */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #f7d6d6; /* เปลี่ยนเป็นสีชมพูพาสเทล นุ่มตาขึ้น */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* กล่องคอนเทนเนอร์หลัก */
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        /* ส่วนมีเดีย (วิดีโอ/เสียง) */
-        .media-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .media-section video {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        /* ส่วนหัวข้อและรูปภาพ */
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .image-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .image-gallery img {
-            width: 100%;
-            max-width: 340px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .image-gallery img:hover {
-            transform: scale(1.03);
-        }
-
-        .profile-header h1 {
-            font-size: 2.2rem;
-            color: #2c3e50;
-            margin-top: 15px;
-        }
-
-        /* ส่วนเนื้อหาประวัติ */
-        .profile-info {
-            margin-bottom: 30px;
-        }
-
-        .info-group {
-            margin-bottom: 20px;
-        }
-
-        .info-group h2 {
-            color: #2f80ed; /* สีฟ้าที่ดูทันสมัยขึ้น */
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-
-        .info-group p {
-            font-size: 1.1rem;
-            color: #555;
-            padding-left: 5px;
-        }
-
-        .bio-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #2f80ed;
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            margin-top: 5px;
-        }
-
-        /* ปุ่มและลิงก์ */
-        .btn-facebook {
-            display: inline-block;
-            margin-top: 10px;
-            color: #1877f2;
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .btn-facebook:hover {
-            text-decoration: underline;
-            color: #145dbf;
-        }
-
-        .navigation {
-            text-align: center;
-            margin-top: 20px;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .btn-next {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .btn-next:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-        }
-    </style>
+    <title>แนะนำตัวเอง</title>
 </head>
-<body>
+<body style="background-color:#FAA0A0; font-family: sans-serif; padding: 20px;">
 
-    <div class="container">
-        <div class="media-section">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 20px;">
+        <div>
             <video width="360" height="240" controls>
                 <source src="videoplayback.mp4" type="video/mp4">
                 <source src="videoplayback.ogg" type="video/ogg">
-                เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                Your browser does not support the video tag.
             </video>
-            
+        </div>
+        
+        <div>
             <audio controls autoplay muted>
                 <source src="audio.ogg" type="audio/ogg">
                 <source src="audio.mp3" type="audio/mpeg">
-                เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+                Your browser does not support the audio element.
             </audio>
-        </div>
-
-        <div class="profile-header">
-            <div class="image-gallery">
-                <img src="15299.jpg" alt="รูปภาพของสิทธิชัย 1">
-                <img src="jaug.jpg" alt="รูปภาพของสิทธิชัย 2">
-            </div>
-            <h1>นายสิทธิชัย หวังมีสุข</h1>
-        </div>
-        
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-        <div class="profile-info">
-            <div class="info-group">
-                <h2>วันเกิด</h2>
-                <p>11 เมษายน 2552</p>
-            </div>
-                
-            <div class="info-group">
-                <h2>อายุ</h2>
-                <p>17 ปี</p>
-            </div>
-                
-            <div class="info-group">
-                <h2>สถานศึกษาปัจจุบัน</h2>
-                <p>วิทยาลัยเทคนิคเชียงใหม่</p>
-            </div>
-                
-            <div class="info-group">
-                <h2>สิ่งที่ชอบ</h2>
-                <p>เขียนนิยาย</p>
-            </div>
-                
-            <div class="info-group">
-                <h2>ประวัติเพิ่มเติม</h2>
-                <div class="bio-box">
-                    <p>ผมเคยเรียนจากโรงเรียนวัดเชียงยืนและเคยบวชที่โรงเรียนธรรมราชศึกษามีพี่น้องอยู่ 3 คน เป็นน้องสาว 1 คน และน้องชาย 2 คน</p>
-                </div>
-            </div>
-
-            <a href="https://www.facebook.com/ceng.hwang.mi.sukh" target="_blank" class="btn-facebook">
-                 🔵 Facebook ของผม
-            </a>
         </div>
     </div>
 
-    <div class="navigation">
-        <a href="page.html" class="btn-next">หน้าต่อไป (ทักษะและอาชีพ) &raquo;</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <div style="display: inline-block; margin: 10px;">
+            <img src="15299.jpg" alt="รูปภาพของสิทธิชัย" width="460" height="345" style="border-radius: 8px;">
+        </div>
+        <div style="display: inline-block; margin: 10px;">
+            <img src="jaug.jpg" alt="รูปภาพของสิทธิชัย" width="460" height="345" style="border-radius: 8px;">
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <h1 style="font-family:verdana; font-size:300%; text-align:center;">นาย สิทธิชัย หวังมีสุข</h1>
+    </div>
+    
+    <hr>
+
+    <div style="padding: 0 20px;">
+        <h2 style="color:blue;">วันเกิด</h2>
+        <p><i>11 เมษายน 2552</i></p>
+            
+        <h2 style="color:blue;">อายุ</h2>
+        <p><i>17 ปี</i></p>
+            
+        <h2 style="color:blue;">สถานศึกษาปัจจุบัน</h2>
+        <p><i>วิทยาลัยเทคนิคเชียงใหม่</i></p>
+            
+        <h2 style="color:blue;">สิ่งที่ชอบ</h2>
+        <p><i>เขียนนิยาย</i></p>
+            
+        <h2 style="color:blue;">ประวัติเพิ่มเติม</h2>
+        <blockquote cite="http://www.worldwildlife.org/who/index.html">
+            <p>ผมเคยเรียนจากโรงเรียนวัดเชียงยืนและเคยบวชที่โรงเรียนธรรมราชศึกษามีพี่น้องอยู่ 3 คน เป็นน้องสาว 1 น้องชาย 2</p>
+        </blockquote>
+
+        <p style="margin-top: 15px;">
+            <a href="https://www.facebook.com/ceng.hwang.mi.sukh" target="_blank" style="color: #0000EE; font-weight: bold; text-decoration: none;"> Facebook ของผม </a>
+        </p>
+    </div>
+
+    <div style="text-align: center;">
+        <hr style="margin-top: 30px;">
+        <div style="margin-top: 20px;">
+            <a href="page.html" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">หน้าต่อไป (ทักษะและอาชีพ) &raquo;</a>
+        </div>
     </div>
 
 </body>
