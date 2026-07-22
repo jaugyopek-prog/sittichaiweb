@@ -2,72 +2,336 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>แนะนำตัวเอง</title>
-</head>
-<body style="background-color:#FAA0A0; font-family: sans-serif; padding: 20px;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัวเอง - สิทธิชัย หวังมีสุข</title>
+    <!-- Google Fonts & Font Awesome CDN สำหรับไอคอน -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 20px;">
-        <div>
-            <video width="360" height="240" controls>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Kanit', sans-serif;
+            color: #2d3436;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header section */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            font-size: 2.2rem;
+            color: #d63031;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .sub-title {
+            color: #636e72;
+            font-size: 1.1rem;
+        }
+
+        /* Media Section (Video & Audio) */
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        audio {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 18px;
+            border-radius: 14px;
+            border-left: 5px solid #ff7675;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .info-card h3 {
+            font-size: 0.95rem;
+            color: #0984e3;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Bio Box */
+        .bio-box {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .bio-box h3 {
+            color: #0984e3;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* API Section (Quote Generator) */
+        .quote-box {
+            background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(63, 43, 150, 0.2);
+        }
+
+        .quote-box h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .quote-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .quote-author {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Buttons & Socials */
+        .action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-facebook {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1877f2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-facebook:hover {
+            background-color: #165ec9;
+        }
+
+        .btn-next {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #00b894;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-next:hover {
+            background-color: #00a182;
+            transform: scale(1.03);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- สื่อมัลติมีเดีย (วิดีโอ & เสียง) -->
+        <div class="media-section">
+            <video controls>
                 <source src="video.mp4" type="video/mp4">
                 <source src="video.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
+            <div>
+                <audio controls muted>
+                    <source src="audio.ogg" type="audio/ogg">
+                    <source src="audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
-        
-        <div>
-            <audio controls autoplay muted>
-                <source src="audio.ogg" type="audio/ogg">
-                <source src="audio.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+
+        <!-- รูปภาพโปรไฟล์ -->
+        <div class="gallery">
+            <img src="15299.jpg" alt="รูปภาพของสิทธิชัย">
+            <img src="jaug.jpg" alt="รูปภาพของสิทธิชัย">
         </div>
+
+        <!-- ชื่อ-สกุล -->
+        <div class="profile-header">
+            <h1>นาย สิทธิชัย หวังมีสุข</h1>
+            <p class="sub-title">นักเรียนนักศึกษา วิทยาลัยเทคนิคเชียงใหม่</p>
+        </div>
+
+        <hr>
+
+        <!-- ข้อมูลส่วนตัวแบบการ์ด -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fa-regular fa-calendar-days"></i> วันเกิด</h3>
+                <p>11 เมษายน 2552</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fa-solid fa-cake-candles"></i> อายุ</h3>
+                <p>17 ปี</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> สถานศึกษา</h3>
+                <p>วิทยาลัยเทคนิคเชียงใหม่</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fa-solid fa-pen-nib"></i> สิ่งที่ชอบ</h3>
+                <p>เขียนนิยาย</p>
+            </div>
+        </div>
+
+        <!-- ประวัติเพิ่มเติม -->
+        <div class="bio-box">
+            <h3><i class="fa-solid fa-user-large"></i> ประวัติเพิ่มเติม</h3>
+            <p>เคยเรียนจากโรงเรียนวัดเชียงยืน และเคยบวชเรียนที่โรงเรียนธรรมราชศึกษา มีพี่น้องทั้งหมด 3 คน (มีน้องสาว 1 คน และน้องชาย 2 คน)</p>
+        </div>
+
+        <!-- ส่วนแสดง API คำคมสร้างแรงบันดาลใจ -->
+        <div class="quote-box">
+            <h4><i class="fa-solid fa-quote-left"></i> คำคมสร้างแรงบันดาลใจประจำวัน (API)</h4>
+            <p class="quote-text" id="quote">กำลังโหลดคำคม...</p>
+            <p class="quote-author" id="author"></p>
+        </div>
+
+        <!-- ปุ่มกดต่างๆ -->
+        <div class="action-area">
+            <a href="https://www.facebook.com/ceng.hwang.mi.sukh" target="_blank" class="btn-facebook">
+                <i class="fa-brands fa-facebook"></i> Facebook ของผม
+            </a>
+
+            <hr style="width: 100%;">
+
+            <a href="page2.html" class="btn-next">
+                หน้าต่อไป (ทักษะและอาชีพ) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
     </div>
 
-    <div style="text-align: center; margin-top: 20px;">
-        <div style="display: inline-block; margin: 10px;">
-            <img src="15299.jpg" alt="รูปภาพของสิทธิชัย" width="460" height="345" style="border-radius: 8px;">
-        </div>
-        <div style="display: inline-block; margin: 10px;">
-            <img src="jaug.jpg" alt="รูปภาพของสิทธิชัย" width="460" height="345" style="border-radius: 8px;">
-        </div>
-    </div>
+    <!-- JavaScript สำหรับดึงข้อมูล API -->
+    <script>
+        async function fetchQuote() {
+            try {
+                // เรียกใช้ Quotable API
+                const response = await fetch('https://api.quotable.io/random?tags=inspirational|future|creative');
+                if (!response.ok) throw new Error('API Response Error');
+                const data = await response.json();
+                
+                document.getElementById('quote').innerText = `"${data.content}"`;
+                document.getElementById('author').innerText = `- ${data.author}`;
+            } catch (error) {
+                // ตัวอย่าง fallback หาก API ติดปัญหา
+                document.getElementById('quote').innerText = '"The secret of getting ahead is getting started."';
+                document.getElementById('author').innerText = '- Mark Twain';
+            }
+        }
 
-    <div style="text-align: center; margin-top: 20px;">
-        <h1 style="font-family:verdana; font-size:300%; text-align:center;">นาย สิทธิชัย หวังมีสุข</h1>
-    </div>
-    
-    <hr>
-
-    <div style="padding: 0 20px;">
-        <h2 style="color:blue;">วันเกิด</h2>
-        <p><i>11 เมษายน 2552</i></p>
-            
-        <h2 style="color:blue;">อายุ</h2>
-        <p><i>17 ปี</i></p>
-            
-        <h2 style="color:blue;">สถานศึกษาปัจจุบัน</h2>
-        <p><i>วิทยาลัยเทคนิคเชียงใหม่</i></p>
-            
-        <h2 style="color:blue;">สิ่งที่ชอบ</h2>
-        <p><i>เขียนนิยาย</i></p>
-            
-        <h2 style="color:blue;">ประวัติเพิ่มเติม</h2>
-        <blockquote cite="http://www.worldwildlife.org/who/index.html">
-            <p>ผมเคยเรียนจากโรงเรียนวัดเชียงยืนและเคยบวชที่โรงเรียนธรรมราชศึกษามีพี่น้องอยู่ 3 คน เป็นน้องสาว 1 น้องชาย 2</p>
-        </blockquote>
-
-        <p style="margin-top: 15px;">
-            <a href="https://www.facebook.com/ceng.hwang.mi.sukh" target="_blank" style="color: #0000EE; font-weight: bold; text-decoration: none;"> Facebook ของผม </a>
-        </p>
-    </div>
-
-    <div style="text-align: center;">
-        <hr style="margin-top: 30px;">
-        <div style="margin-top: 20px;">
-            <a href="page2.html" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">หน้าต่อไป (ทักษะและอาชีพ) &raquo;</a>
-        </div>
-    </div>
-
+        // เรียกทำงานฟังก์ชันเมื่อโหลดหน้าเว็บ
+        fetchQuote();
+    </script>
 </body>
 </html>
