@@ -36,6 +36,53 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
+        /* ---------------------------------------------------- */
+        /*  ส่วนมัลติมีเดีย (Media Section - วิดีโอ & เสียง)      */
+        /* ---------------------------------------------------- */
+        .media-section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 340px; /* จำกัดขนาดความกว้างวิดีโอไม่ให้ใหญ่เกินไป */
+            aspect-ratio: 16 / 9; /* ล็อคสัดส่วน 16:9 มาตรฐาน */
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+            background-color: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ทำให้คลิปพอดีกรอบสวยงาม ไม่เบี้ยว */
+            display: block;
+        }
+
+        .audio-wrapper {
+            width: 100%;
+            max-width: 340px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .audio-wrapper audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+        }
+        /* ---------------------------------------------------- */
+
         /* Header section */
         .profile-header {
             text-align: center;
@@ -52,31 +99,6 @@
         .sub-title {
             color: #636e72;
             font-size: 1.1rem;
-        }
-
-        /* Media Section (Video & Audio) */
-        .media-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-        }
-
-        video {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        audio {
-            width: 100%;
-            max-width: 300px;
         }
 
         /* Gallery */
@@ -234,14 +256,17 @@
 
     <div class="container">
 
-        <!-- สื่อมัลติมีเดีย (วิดีโอ & เสียง) -->
+        <!-- สื่อมัลติมีเดีย (วิดีโอ & เสียง) ปรับขนาดใหม่ให้พอดี -->
         <div class="media-section">
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
-                <source src="video.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            <div>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    <source src="video.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="audio-wrapper">
                 <audio controls muted>
                     <source src="audio.ogg" type="audio/ogg">
                     <source src="audio.mp3" type="audio/mpeg">
